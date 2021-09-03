@@ -11,13 +11,14 @@ alt.on("speedometer:data", (data) => {
   let engineHealth = data.engineHealth;
   let lightState = data.lightState;
   let highBeamState = data.highBeamState;
+  let percent = speed / 300; 
 
   if (engineHealth < 500) {
     document.getElementById("engineIcon").style.visibility = "visible";
   } else {
     document.getElementById("engineIcon").style.visibility = "hidden";
   }
-  document.getElementById("speedValue").style.height = speed + "px";
+  document.getElementById("speedValue").style.height = (percent * 60) + "vh";
   document.getElementById("fuelMeter").value = fuel;
   document.getElementById("rpmMeter").value = rpm;
   document.getElementById("speedText").innerHTML = speed;
